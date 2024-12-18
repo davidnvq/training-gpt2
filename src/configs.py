@@ -14,7 +14,7 @@ class GPTConfig:
 
 @dataclass
 class TrainingArguments:
-    num_epochs: int = 15
+    num_epochs: int = 5
     batch_size: int = 8
     learning_rate: float = 5e-4
     weight_decay: float = 0.1

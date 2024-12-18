@@ -119,4 +119,6 @@ def train_model_simple_with_timing(
                       f"Train: {train_loss:.3f}, Val: {eval_loss:.3f}, "
                       f"Step tok/sec: {round(tps)}, Avg tok/sec: {round(avg_tps)}")
 
+        print_memory_stats()
+
     return train_losses, eval_losses, track_tokens

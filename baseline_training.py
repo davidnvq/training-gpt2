@@ -1,4 +1,3 @@
-from math import e
 import torch
 from src.utils import set_seed
 from src.model import GPTModel
