@@ -1,0 +1,30 @@
+python baseline_training.py
+Ep 1, Step 000000, Train: 19.061, Val: 19.227, Step tok/sec: 10605, Avg tok/sec: 0
+Ep 1, Step 000015, Train: 12.392, Val: 12.587, Step tok/sec: 12811, Avg tok/sec: 12811
+Ep 1, Step 000030, Train: 11.561, Val: 11.785, Step tok/sec: 12627, Avg tok/sec: 12718
+Ep 1, Step 000045, Train: 11.208, Val: 11.169, Step tok/sec: 12597, Avg tok/sec: 12678
+Allocated memory: 2.5077 GB
+Reserved memory: 22.1367 GB
+Ep 2, Step 000060, Train: 10.743, Val: 10.855, Step tok/sec: 12608, Avg tok/sec: 12660
+Ep 2, Step 000075, Train: 10.299, Val: 10.631, Step tok/sec: 12544, Avg tok/sec: 12637
+Ep 2, Step 000090, Train: 10.117, Val: 10.514, Step tok/sec: 12570, Avg tok/sec: 12625
+Allocated memory: 2.5077 GB
+Reserved memory: 22.1367 GB
+Ep 3, Step 000105, Train: 9.738, Val: 10.296, Step tok/sec: 12551, Avg tok/sec: 12615
+Ep 3, Step 000120, Train: 9.699, Val: 10.219, Step tok/sec: 12359, Avg tok/sec: 12582
+Ep 3, Step 000135, Train: 9.307, Val: 10.105, Step tok/sec: 12469, Avg tok/sec: 12570
+Ep 3, Step 000150, Train: 9.375, Val: 10.044, Step tok/sec: 12396, Avg tok/sec: 12552
+Allocated memory: 2.5077 GB
+Reserved memory: 22.1367 GB
+Ep 4, Step 000165, Train: 8.954, Val: 9.990, Step tok/sec: 12551, Avg tok/sec: 12552
+Ep 4, Step 000180, Train: 8.739, Val: 9.964, Step tok/sec: 12567, Avg tok/sec: 12553
+Ep 4, Step 000195, Train: 8.921, Val: 9.902, Step tok/sec: 12572, Avg tok/sec: 12555
+Allocated memory: 2.5077 GB
+Reserved memory: 22.1367 GB
+Ep 5, Step 000210, Train: 8.335, Val: 9.854, Step tok/sec: 12399, Avg tok/sec: 12543
+Ep 5, Step 000225, Train: 8.242, Val: 9.892, Step tok/sec: 12505, Avg tok/sec: 12541
+Ep 5, Step 000240, Train: 8.075, Val: 9.891, Step tok/sec: 12551, Avg tok/sec: 12541
+Ep 5, Step 000255, Train: 7.683, Val: 9.852, Step tok/sec: 12662, Avg tok/sec: 12548
+Allocated memory: 2.5077 GB
+Reserved memory: 22.1367 GB
+
