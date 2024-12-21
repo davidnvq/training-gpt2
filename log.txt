@@ -1,4 +1,4 @@
-python baseline_training.py
+python train_baseline.py
 Ep 1, Step 000000, Train: 19.061, Val: 19.227, Step tok/sec: 10605, Avg tok/sec: 0
 Ep 1, Step 000015, Train: 12.392, Val: 12.587, Step tok/sec: 12811, Avg tok/sec: 12811
 Ep 1, Step 000030, Train: 11.561, Val: 11.785, Step tok/sec: 12627, Avg tok/sec: 12718
@@ -30,7 +30,7 @@ Reserved memory: 22.1367 GB
 
 
 // with creating causal mask on-the-fly
-python optimized_training.py
+python train_optimized.py
 Ep 1, Step 000000, Train: 19.061, Val: 19.227, Step tok/sec: 10705, Avg tok/sec: 0
 Ep 1, Step 000015, Train: 12.392, Val: 12.587, Step tok/sec: 12846, Avg tok/sec: 12846
 Ep 1, Step 000030, Train: 11.561, Val: 11.785, Step tok/sec: 12886, Avg tok/sec: 12866

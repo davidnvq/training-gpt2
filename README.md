@@ -28,7 +28,7 @@ pip install torch tiktoken matplotlib
 Run the baseline training script:
 
 ```bash
-python baseline_training.py
+python train_baseline.py
 ```
 
 This will:
@@ -41,7 +41,7 @@ This will:
 Run the fully optimized training script (includes all optimizations from steps 1-11):
 
 ```bash
-python optimized_training.py
+python train_optimized.py
 ```
 
 This achieves **142,156 tokens/sec** with all optimizations:
@@ -58,10 +58,10 @@ Run distributed training across multiple GPUs:
 
 ```bash
 # For 2 GPUs
-torchrun --nproc_per_node=2 ddp_training.py
+torchrun --nproc_per_node=2 train_optimized_ddp.py
 
 # For 4 GPUs
-torchrun --nproc_per_node=4 ddp_training.py
+torchrun --nproc_per_node=4 train_optimized_ddp.py
 ```
 
 This achieves **284,312 tokens/sec** with 2 GPUs and scales linearly with more GPUs.
