@@ -113,7 +113,7 @@ Total Parameters are ~124M.
 |-------------|-------------|-------------|-------------|-----------------|------|
 | 1 | 1 GPU | Baseline | 12,548 | 22.14 GB | Initial implementation |
 | 2 | 1 GPU | Causal mask on-the-fly | 12,671 | 22.12 GB | Dynamic mask creation reduces memory |
-
+| 3 | 1 GPU | Tensor cores | 16,243 | 22.12 GB | Enable Tensor cores (Ampere GPU optimization) |
 
 
 ## 📁 Project Structure

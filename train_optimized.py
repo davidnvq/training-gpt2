@@ -1,4 +1,10 @@
 import torch
+
+# ! optimized step 2: enable Tensor Core usage with TF32 (only on Ampere GPUs)
+torch.backends.cuda.matmul.allow_tf32 = True
+torch.backends.cudnn.allow_tf32 = True
+torch.set_float32_matmul_precision('high')  # Or 'highest'
+
 from src.utils import set_seed
 from src.optimized_model import GPTModel
 from src.data import create_dataloader_v1
