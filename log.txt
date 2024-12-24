@@ -10,26 +10,9 @@ Ep 2, Step 000075, Train: 10.299, Val: 10.631, Step tok/sec: 12544, Avg tok/sec:
 Ep 2, Step 000090, Train: 10.117, Val: 10.514, Step tok/sec: 12570, Avg tok/sec: 12625
 Allocated memory: 2.5077 GB
 Reserved memory: 22.1367 GB
-Ep 3, Step 000105, Train: 9.738, Val: 10.296, Step tok/sec: 12551, Avg tok/sec: 12615
-Ep 3, Step 000120, Train: 9.699, Val: 10.219, Step tok/sec: 12359, Avg tok/sec: 12582
-Ep 3, Step 000135, Train: 9.307, Val: 10.105, Step tok/sec: 12469, Avg tok/sec: 12570
-Ep 3, Step 000150, Train: 9.375, Val: 10.044, Step tok/sec: 12396, Avg tok/sec: 12552
-Allocated memory: 2.5077 GB
-Reserved memory: 22.1367 GB
-Ep 4, Step 000165, Train: 8.954, Val: 9.990, Step tok/sec: 12551, Avg tok/sec: 12552
-Ep 4, Step 000180, Train: 8.739, Val: 9.964, Step tok/sec: 12567, Avg tok/sec: 12553
-Ep 4, Step 000195, Train: 8.921, Val: 9.902, Step tok/sec: 12572, Avg tok/sec: 12555
-Allocated memory: 2.5077 GB
-Reserved memory: 22.1367 GB
-Ep 5, Step 000210, Train: 8.335, Val: 9.854, Step tok/sec: 12399, Avg tok/sec: 12543
-Ep 5, Step 000225, Train: 8.242, Val: 9.892, Step tok/sec: 12505, Avg tok/sec: 12541
-Ep 5, Step 000240, Train: 8.075, Val: 9.891, Step tok/sec: 12551, Avg tok/sec: 12541
-Ep 5, Step 000255, Train: 7.683, Val: 9.852, Step tok/sec: 12662, Avg tok/sec: 12548
-Allocated memory: 2.5077 GB
-Reserved memory: 22.1367 GB
 
 
-// with creating causal mask on-the-fly
+// optimized step 1: creating causal mask on-the-fly
 python train_optimized.py
 Ep 1, Step 000000, Train: 19.061, Val: 19.227, Step tok/sec: 10705, Avg tok/sec: 0
 Ep 1, Step 000015, Train: 12.392, Val: 12.587, Step tok/sec: 12846, Avg tok/sec: 12846
@@ -42,20 +25,34 @@ Ep 2, Step 000075, Train: 10.299, Val: 10.631, Step tok/sec: 12469, Avg tok/sec:
 Ep 2, Step 000090, Train: 10.117, Val: 10.514, Step tok/sec: 12677, Avg tok/sec: 12753
 Allocated memory: 2.4580 GB
 Reserved memory: 22.1172 GB
-Ep 3, Step 000105, Train: 9.738, Val: 10.296, Step tok/sec: 12722, Avg tok/sec: 12749
-Ep 3, Step 000120, Train: 9.699, Val: 10.219, Step tok/sec: 12742, Avg tok/sec: 12748
-Ep 3, Step 000135, Train: 9.307, Val: 10.105, Step tok/sec: 12384, Avg tok/sec: 12706
-Ep 3, Step 000150, Train: 9.375, Val: 10.044, Step tok/sec: 12549, Avg tok/sec: 12690
-Allocated memory: 2.4580 GB
+
+
+
+// optimized step 2: enable Tensor Core usage with TF32 (only on Ampere GPUs)
+python train_optimized.py
+Ep 1, Step 000000, Train: 19.061, Val: 19.227, Step tok/sec: 12694, Avg tok/sec: 0
+Ep 1, Step 000015, Train: 12.392, Val: 12.586, Step tok/sec: 16172, Avg tok/sec: 16172
+Ep 1, Step 000030, Train: 11.564, Val: 11.788, Step tok/sec: 16072, Avg tok/sec: 16122
+Ep 1, Step 000045, Train: 11.210, Val: 11.171, Step tok/sec: 16120, Avg tok/sec: 16121
+Allocated memory: 2.4575 GB
 Reserved memory: 22.1172 GB
-Ep 4, Step 000165, Train: 8.954, Val: 9.990, Step tok/sec: 12468, Avg tok/sec: 12670
-Ep 4, Step 000180, Train: 8.739, Val: 9.964, Step tok/sec: 12503, Avg tok/sec: 12656
-Ep 4, Step 000195, Train: 8.921, Val: 9.902, Step tok/sec: 12634, Avg tok/sec: 12654
-Allocated memory: 2.4580 GB
+Ep 2, Step 000060, Train: 10.745, Val: 10.857, Step tok/sec: 16273, Avg tok/sec: 16159
+Ep 2, Step 000075, Train: 10.298, Val: 10.632, Step tok/sec: 16268, Avg tok/sec: 16181
+Ep 2, Step 000090, Train: 10.118, Val: 10.514, Step tok/sec: 16299, Avg tok/sec: 16200
+Allocated memory: 2.4575 GB
 Reserved memory: 22.1172 GB
-Ep 5, Step 000210, Train: 8.335, Val: 9.854, Step tok/sec: 12728, Avg tok/sec: 12659
-Ep 5, Step 000225, Train: 8.242, Val: 9.892, Step tok/sec: 12720, Avg tok/sec: 12663
-Ep 5, Step 000240, Train: 8.075, Val: 9.891, Step tok/sec: 12732, Avg tok/sec: 12668
-Ep 5, Step 000255, Train: 7.683, Val: 9.852, Step tok/sec: 12721, Avg tok/sec: 12671
-Allocated memory: 2.4580 GB
+
+
+// optimized step 3: use fused AdamW optimizer
+python train_optimized.py
+Ep 1, Step 000000, Train: 19.061, Val: 19.227, Step tok/sec: 12940, Avg tok/sec: 0
+Ep 1, Step 000015, Train: 12.392, Val: 12.586, Step tok/sec: 16565, Avg tok/sec: 16565
+Ep 1, Step 000030, Train: 11.564, Val: 11.788, Step tok/sec: 16487, Avg tok/sec: 16526
+Ep 1, Step 000045, Train: 11.210, Val: 11.171, Step tok/sec: 16409, Avg tok/sec: 16487
+Allocated memory: 2.4576 GB
+Reserved memory: 22.1172 GB
+Ep 2, Step 000060, Train: 10.745, Val: 10.857, Step tok/sec: 16367, Avg tok/sec: 16457
+Ep 2, Step 000075, Train: 10.298, Val: 10.632, Step tok/sec: 16624, Avg tok/sec: 16490
+Ep 2, Step 000090, Train: 10.118, Val: 10.515, Step tok/sec: 16584, Avg tok/sec: 16505
+Allocated memory: 2.4576 GB
 Reserved memory: 22.1172 GB

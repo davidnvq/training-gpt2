@@ -26,6 +26,7 @@ def main():
         model.parameters(),
         lr=training_args.learning_rate,
         weight_decay=training_args.weight_decay,
+        fused=True,  # ! optimized step 3: use fused AdamW optimizer
     )
 
     train_loader, eval_loader = create_dataloader_v1(

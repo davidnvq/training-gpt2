@@ -111,10 +111,10 @@ Total Parameters are ~124M.
 
 | Step Number | # GPUs used | Improvement | Avg tok/sec | Reserved memory | Note |
 |-------------|-------------|-------------|-------------|-----------------|------|
-| 1 | 1 GPU | Baseline | 12,548 | 22.14 GB | Initial implementation |
-| 2 | 1 GPU | Causal mask on-the-fly | 12,671 | 22.12 GB | Dynamic mask creation reduces memory |
-| 3 | 1 GPU | Tensor cores | 16,243 | 22.12 GB | Enable Tensor cores (Ampere GPU optimization) |
-
+| 0 | 1 GPU | Baseline | 12,548 | 22.14 GB | Initial implementation |
+| 1 | 1 GPU | Causal mask on-the-fly | 12,671 | 22.12 GB | Dynamic mask creation reduces memory |
+| 2 | 1 GPU | Tensor cores | 16,243 | 22.12 GB | Enable Tensor cores (Ampere GPU optimization) |
+| 3 | 1 GPU | Fused AdamW | 16,505 | 22.12 GB | Optimized optimizer kernels |
 
 ## 📁 Project Structure
 
