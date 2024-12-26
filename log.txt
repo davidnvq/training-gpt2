@@ -56,3 +56,17 @@ Ep 2, Step 000075, Train: 10.298, Val: 10.632, Step tok/sec: 16624, Avg tok/sec:
 Ep 2, Step 000090, Train: 10.118, Val: 10.515, Step tok/sec: 16584, Avg tok/sec: 16505
 Allocated memory: 2.4576 GB
 Reserved memory: 22.1172 GB
+
+// optimized step 4: set pin_memory=TrainingArguments
+python train_optimized.py
+Ep 1, Step 000000, Train: 19.061, Val: 19.227, Step tok/sec: 13078, Avg tok/sec: 0
+Ep 1, Step 000015, Train: 12.392, Val: 12.586, Step tok/sec: 16707, Avg tok/sec: 16707
+Ep 1, Step 000030, Train: 11.564, Val: 11.788, Step tok/sec: 16611, Avg tok/sec: 16659
+Ep 1, Step 000045, Train: 11.210, Val: 11.171, Step tok/sec: 16465, Avg tok/sec: 16594
+Allocated memory: 2.4581 GB
+Reserved memory: 22.1172 GB
+Ep 2, Step 000060, Train: 10.745, Val: 10.857, Step tok/sec: 16829, Avg tok/sec: 16652
+Ep 2, Step 000075, Train: 10.298, Val: 10.632, Step tok/sec: 16382, Avg tok/sec: 16597
+Ep 2, Step 000090, Train: 10.118, Val: 10.515, Step tok/sec: 16509, Avg tok/sec: 16583
+Allocated memory: 2.4581 GB
+Reserved memory: 22.1172 GB

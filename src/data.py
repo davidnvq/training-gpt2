@@ -79,6 +79,7 @@ def create_dataloader_v1(
         shuffle=shuffle and sampler is None,
         drop_last=drop_last,
         num_workers=num_workers,
+        pin_memory=True,  # ! optimized step 4: pin memory to GPU
     )
 
     eval_dataloader = DataLoader(
@@ -88,6 +89,7 @@ def create_dataloader_v1(
         shuffle=False,
         drop_last=False,
         num_workers=num_workers,
+        pin_memory=True,  # ! optimized step 4: pin memory to GPU
     )
 
     return train_dataloader, eval_dataloader
