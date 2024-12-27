@@ -70,3 +70,17 @@ Ep 2, Step 000075, Train: 10.298, Val: 10.632, Step tok/sec: 16382, Avg tok/sec:
 Ep 2, Step 000090, Train: 10.118, Val: 10.515, Step tok/sec: 16509, Avg tok/sec: 16583
 Allocated memory: 2.4581 GB
 Reserved memory: 22.1172 GB
+
+// optimized step 5: switch to bfloat16
+python train_optimized.py
+Ep 1, Step 000000, Train: 19.062, Val: 19.250, Step tok/sec: 17839, Avg tok/sec: 0
+Ep 1, Step 000015, Train: 12.469, Val: 12.625, Step tok/sec: 30133, Avg tok/sec: 30133
+Ep 1, Step 000030, Train: 11.469, Val: 11.719, Step tok/sec: 29947, Avg tok/sec: 30040
+Ep 1, Step 000045, Train: 11.188, Val: 11.125, Step tok/sec: 29751, Avg tok/sec: 29943
+Allocated memory: 1.2691 GB
+Reserved memory: 11.5762 GB
+Ep 2, Step 000060, Train: 10.688, Val: 10.781, Step tok/sec: 29768, Avg tok/sec: 29899
+Ep 2, Step 000075, Train: 10.281, Val: 10.594, Step tok/sec: 29873, Avg tok/sec: 29894
+Ep 2, Step 000090, Train: 10.094, Val: 10.531, Step tok/sec: 30356, Avg tok/sec: 29970
+Allocated memory: 1.2691 GB
+Reserved memory: 11.5762 GB
