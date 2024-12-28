@@ -38,16 +38,12 @@ class MultiHeadAttention(nn.Module):
         # Use the mask to fill attention scores
         attn_scores.masked_fill_(mask_bool, -torch.inf)
 
-        attn_weights = torch.softmax(attn_scores / k.shape[-1]**0.5, dim=-1)
-        attn_weights = self.dropout(attn_weights)
-
-        # shape: (B, H, L, D)
-        context_vec = (attn_weights @ v).transpose(1, 2).contiguous()
+        # ! optimized step 6: use FlashAttention v2 using nn.functional.scaled_dot_product_attention
+        context_vec = nn.functional.scaled_dot_product_attention(q, k, v, attn_mask=mask_bool, dropout_p=self.dropout.p, is_causal=True)
 
         # shape: (B, L, D)
+        context_vec = context_vec.transpose(1, 2).contiguous()
         context_vec = context_vec.reshape(b, num_tokens, self.d_out)
-
-        # shape: (B, L, D)
         context_vec = self.out_proj(context_vec)  # optional projection
 
         return context_vec

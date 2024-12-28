@@ -84,3 +84,17 @@ Ep 2, Step 000075, Train: 10.281, Val: 10.594, Step tok/sec: 29873, Avg tok/sec:
 Ep 2, Step 000090, Train: 10.094, Val: 10.531, Step tok/sec: 30356, Avg tok/sec: 29970
 Allocated memory: 1.2691 GB
 Reserved memory: 11.5762 GB
+
+// optimized step 6: use FlashAttention v2
+python train_optimized.py
+Ep 1, Step 000000, Train: 19.000, Val: 19.250, Step tok/sec: 20271, Avg tok/sec: 0
+Ep 1, Step 000015, Train: 12.250, Val: 12.438, Step tok/sec: 38956, Avg tok/sec: 38956
+Ep 1, Step 000030, Train: 11.312, Val: 11.531, Step tok/sec: 38642, Avg tok/sec: 38798
+Ep 1, Step 000045, Train: 11.000, Val: 11.031, Step tok/sec: 38381, Avg tok/sec: 38658
+Allocated memory: 1.2698 GB
+Reserved memory: 5.9453 GB
+Ep 2, Step 000060, Train: 10.625, Val: 10.750, Step tok/sec: 37684, Avg tok/sec: 38410
+Ep 2, Step 000075, Train: 10.125, Val: 10.531, Step tok/sec: 37932, Avg tok/sec: 38314
+Ep 2, Step 000090, Train: 9.969, Val: 10.469, Step tok/sec: 37486, Avg tok/sec: 38173
+Allocated memory: 1.2698 GB
+Reserved memory: 5.9453 GB

@@ -117,6 +117,9 @@ Total Parameters are ~124M.
 | 3 | 1 GPU | Fused AdamW | 16,505 | 22.12 GB | Enable Fused AdamW optimizer |
 | 4 | 1 GPU | Pinned memory | 16,583 | 22.12 GB | Pre-allocate and re-use GPU memory |
 | 5 | 1 GPU | bfloat16 precision | 29,970 | 11.58 GB | 16-bit brain float precision |
+| 6 | 1 GPU | FlashAttention v2 | 38,173 | 5.94 GB | Optimized attention implementation ([FlashAttn2 is used](https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html)) |
+
+
 
 ## 📁 Project Structure
 
