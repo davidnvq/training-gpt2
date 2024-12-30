@@ -98,3 +98,34 @@ Ep 2, Step 000075, Train: 10.125, Val: 10.531, Step tok/sec: 37932, Avg tok/sec:
 Ep 2, Step 000090, Train: 9.969, Val: 10.469, Step tok/sec: 37486, Avg tok/sec: 38173
 Allocated memory: 1.2698 GB
 Reserved memory: 5.9453 GB
+
+// optimized step 7: use torch.compile
+python train_optimized.py
+Ep 1, Step 000000, Train: 19.000, Val: 19.250, Step tok/sec: 3796, Avg tok/sec: 0
+Ep 1, Step 000015, Train: 12.250, Val: 12.438, Step tok/sec: 32085, Avg tok/sec: 32085
+Ep 1, Step 000030, Train: 11.312, Val: 11.531, Step tok/sec: 44688, Avg tok/sec: 37352
+Ep 1, Step 000045, Train: 11.000, Val: 11.031, Step tok/sec: 44714, Avg tok/sec: 39521
+Allocated memory: 1.2815 GB
+Reserved memory: 5.9531 GB
+Ep 2, Step 000060, Train: 10.625, Val: 10.750, Step tok/sec: 44537, Avg tok/sec: 40666
+Ep 2, Step 000075, Train: 10.125, Val: 10.531, Step tok/sec: 44552, Avg tok/sec: 41388
+Ep 2, Step 000090, Train: 9.969, Val: 10.469, Step tok/sec: 44522, Avg tok/sec: 41879
+Allocated memory: 1.2815 GB
+Reserved memory: 5.9531 GB
+Ep 3, Step 000105, Train: 9.594, Val: 10.250, Step tok/sec: 44309, Avg tok/sec: 42210
+Ep 3, Step 000120, Train: 9.562, Val: 10.219, Step tok/sec: 44398, Avg tok/sec: 42472
+Ep 3, Step 000135, Train: 9.188, Val: 10.125, Step tok/sec: 44310, Avg tok/sec: 42668
+Ep 3, Step 000150, Train: 9.250, Val: 10.062, Step tok/sec: 44303, Avg tok/sec: 42826
+Allocated memory: 1.2815 GB
+Reserved memory: 5.9531 GB
+Ep 4, Step 000165, Train: 8.875, Val: 10.031, Step tok/sec: 44193, Avg tok/sec: 42947
+Ep 4, Step 000180, Train: 8.625, Val: 9.969, Step tok/sec: 44128, Avg tok/sec: 43043
+Ep 4, Step 000195, Train: 8.844, Val: 9.938, Step tok/sec: 44091, Avg tok/sec: 43122
+Allocated memory: 1.2815 GB
+Reserved memory: 5.9531 GB
+Ep 5, Step 000210, Train: 8.344, Val: 9.938, Step tok/sec: 44108, Avg tok/sec: 43191
+Ep 5, Step 000225, Train: 8.188, Val: 9.969, Step tok/sec: 44072, Avg tok/sec: 43249
+Ep 5, Step 000240, Train: 8.125, Val: 9.969, Step tok/sec: 44169, Avg tok/sec: 43305
+Ep 5, Step 000255, Train: 7.750, Val: 9.906, Step tok/sec: 44137, Avg tok/sec: 43353
+Allocated memory: 1.2815 GB
+Reserved memory: 5.9531 GB

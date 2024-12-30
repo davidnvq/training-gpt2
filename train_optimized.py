@@ -20,6 +20,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     model = GPTModel(gpt_config)
+    model = torch.compile(model)  # ! optimized step 7: use torch.compile
     model.to(device).to(torch.bfloat16)  # ! optimized step 5: use bfloat16 precision
 
     optimizer = torch.optim.AdamW(
