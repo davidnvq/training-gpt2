@@ -119,6 +119,7 @@ Total Parameters are ~124M.
 | 5 | 1 GPU | bfloat16 precision | 29,970 | 11.58 GB | 16-bit brain float precision |
 | 6 | 1 GPU | FlashAttention v2 | 38,173 | 5.94 GB | Optimized attention implementation ([FlashAttn2 is used](https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html)) |
 | 7 | 1 GPU | torch.compile | 43,879 | 5.95 GB | PyTorch compilation optimization |
+| 8 | 1 GPU | Increased batch size | 48,025 | 11.45 GB | Maximum GPU utilization |
 
 
 ## 📁 Project Structure
