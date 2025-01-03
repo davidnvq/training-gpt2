@@ -152,3 +152,64 @@ Ep 5, Step 000105, Train: 8.812, Val: 9.875, Step tok/sec: 48025, Avg tok/sec: 4
 Ep 5, Step 000120, Train: 9.031, Val: 9.812, Step tok/sec: 47400, Avg tok/sec: 41760
 Allocated memory: 1.2699 GB
 Reserved memory: 11.4492 GB
+
+// optimized step 9: use DDP
+python train_optimized_ddp.py
+Ep 1, Step 000000, Train: 18.938, Val: 19.125, Step tok/sec: 4186, Avg tok/sec: 4186
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 2, Step 000015, Train: 12.062, Val: 12.500, Step tok/sec: 30133, Avg tok/sec: 25112
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 3, Step 000030, Train: 10.688, Val: 11.562, Step tok/sec: 79152, Avg tok/sec: 37806
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 4, Step 000045, Train: 10.250, Val: 11.094, Step tok/sec: 79484, Avg tok/sec: 45707
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 5, Step 000060, Train: 9.594, Val: 10.812, Step tok/sec: 79295, Avg tok/sec: 51070
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 6, Step 000075, Train: 9.438, Val: 10.625, Step tok/sec: 79183, Avg tok/sec: 54946
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 7, Step 000090, Train: 9.344, Val: 10.656, Step tok/sec: 78817, Avg tok/sec: 57850
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 9, Step 000105, Train: 8.906, Val: 10.438, Step tok/sec: 77840, Avg tok/sec: 60042
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 10, Step 000120, Train: 8.312, Val: 10.406, Step tok/sec: 78830, Avg tok/sec: 61878
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 11, Step 000135, Train: 7.766, Val: 10.469, Step tok/sec: 78475, Avg tok/sec: 63362
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 12, Step 000150, Train: 7.203, Val: 10.531, Step tok/sec: 78852, Avg tok/sec: 64627
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 13, Step 000165, Train: 6.844, Val: 10.625, Step tok/sec: 78699, Avg tok/sec: 65692
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 14, Step 000180, Train: 6.578, Val: 10.750, Step tok/sec: 78512, Avg tok/sec: 66595
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 16, Step 000195, Train: 6.250, Val: 10.938, Step tok/sec: 78503, Avg tok/sec: 67380
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 17, Step 000210, Train: 5.500, Val: 11.156, Step tok/sec: 78078, Avg tok/sec: 68044
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 18, Step 000225, Train: 5.016, Val: 11.406, Step tok/sec: 78512, Avg tok/sec: 68653
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 19, Step 000240, Train: 4.594, Val: 11.656, Step tok/sec: 78072, Avg tok/sec: 69173
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB
+Ep 20, Step 000255, Train: 4.250, Val: 11.906, Step tok/sec: 77956, Avg tok/sec: 69634
+Allocated memory: 1.5803 GB
+Reserved memory: 11.7773 GB

@@ -120,7 +120,7 @@ Total Parameters are ~124M.
 | 6 | 1 GPU | FlashAttention v2 | 38,173 | 5.94 GB | Optimized attention implementation ([FlashAttn2 is used](https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html)) |
 | 7 | 1 GPU | torch.compile | 43,879 | 5.95 GB | PyTorch compilation optimization |
 | 8 | 1 GPU | Increased batch size | 48,025 | 11.45 GB | Maximum GPU utilization |
-
+| 9 | 2 GPUs | DDP on 2 GPUs | 78,475 | 11.77 GB | Distributed training across 2 GPUs |
 
 ## 📁 Project Structure
 

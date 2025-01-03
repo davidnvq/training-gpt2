@@ -1,6 +1,7 @@
 import torch
 import random
 import numpy as np
+import torch.distributed as dist
 
 
 def set_seed(seed):
@@ -77,6 +78,11 @@ def train_model_simple_with_timing(
     # Main training loop
     for epoch in range(num_epochs):
         model.train()
+
+        # ! optimized step 9: use DDP with DistributedSampler
+        if isinstance(train_loader.sampler, torch.utils.data.distributed.DistributedSampler):
+            train_loader.sampler.set_epoch(epoch)
+
         for inp_batch, tgt_batch in train_loader:
             optimizer.zero_grad()
             global_step += 1
@@ -106,6 +112,26 @@ def train_model_simple_with_timing(
                     cumulative_tokens += tokens_interval
                     cumulative_time += elapsed
 
+                # ! optimized step 9: use DDP
+                if dist.is_initialized():
+                    local_interval = tokens_interval
+                    local_tensor = torch.tensor([local_interval], device=device, dtype=torch.float)
+                    global_tensor = local_tensor.clone()
+                    torch.distributed.all_reduce(global_tensor, op=torch.distributed.ReduceOp.SUM)
+                    global_interval = global_tensor.item()
+
+                    # Global tokens per second for this interval
+                    global_tps = global_interval / elapsed if elapsed > 0 else 0
+
+                    # Update cumulative tokens (local) and aggregate globally
+                    cumulative_tokens += local_interval
+                    local_cum_tensor = torch.tensor([cumulative_tokens], device=device, dtype=torch.float)
+                    global_cum_tensor = local_cum_tensor.clone()
+                    torch.distributed.all_reduce(global_cum_tensor, op=torch.distributed.ReduceOp.SUM)
+                    global_cumulative_tokens = global_cum_tensor.item()
+                    cumulative_time += elapsed
+                    global_avg_tps = global_cumulative_tokens / cumulative_time if cumulative_time > 0 else 0
+
                 # Compute cumulative average tokens/sec (excluding the first interval)
                 avg_tps = cumulative_tokens / cumulative_time if cumulative_time > 0 else 0
 
@@ -115,10 +141,22 @@ def train_model_simple_with_timing(
                 eval_losses.append(eval_loss)
                 track_tokens.append(total_tokens)
 
-                print(f"Ep {epoch+1}, Step {global_step:06d}, "
-                      f"Train: {train_loss:.3f}, Val: {eval_loss:.3f}, "
-                      f"Step tok/sec: {round(tps)}, Avg tok/sec: {round(avg_tps)}")
+                # ! optimized step 9: use DDP
+                if dist.is_initialized():
+                    avg_tps = global_avg_tps
+                    tps = global_tps
 
-        print_memory_stats()
+                    if dist.get_rank() == 0:
+                        print(f"Ep {epoch+1}, Step {global_step:06d}, "
+                              f"Train: {train_loss:.3f}, Val: {eval_loss:.3f}, "
+                              f"Step tok/sec: {round(tps)}, Avg tok/sec: {round(avg_tps)}")
+                else:
+
+                    print(f"Ep {epoch+1}, Step {global_step:06d}, "
+                          f"Train: {train_loss:.3f}, Val: {eval_loss:.3f}, "
+                          f"Step tok/sec: {round(tps)}, Avg tok/sec: {round(avg_tps)}")
+
+        if dist.is_initialized() and dist.get_rank() == 0:
+            print_memory_stats()
 
     return train_losses, eval_losses, track_tokens
