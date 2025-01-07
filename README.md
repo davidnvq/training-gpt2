@@ -1,6 +1,6 @@
 # GPT-2 Training from Scratch
 
-An implementation of GPT-2 training from scratch. This also implements several optimization steps to speed up the training.
+An implementation of GPT-2 training from scratch for educational purpose only. This also implements several optimization steps to speed up the training.
 
 ## 📋 Requirements
 
@@ -38,13 +38,13 @@ This will:
 
 ### Optimized Training
 
-Run the fully optimized training script (includes all optimizations from steps 1-11):
+Run the fully optimized training script (includes all optimizations from steps 1-8):
 
 ```bash
 python train_optimized.py
 ```
 
-This achieves **142,156 tokens/sec** with all optimizations:
+This achieves **48,025 tokens/sec** with all optimizations:
 - bfloat16 precision
 - FlashAttention
 - torch.compile
@@ -64,7 +64,7 @@ torchrun --nproc_per_node=2 train_optimized_ddp.py
 torchrun --nproc_per_node=4 train_optimized_ddp.py
 ```
 
-This achieves **284,312 tokens/sec** with 2 GPUs and scales linearly with more GPUs.
+This achieves **78,475 tokens/sec** with 2 GPUs and scales linearly with more GPUs.
 
 ### Training Configuration
 
